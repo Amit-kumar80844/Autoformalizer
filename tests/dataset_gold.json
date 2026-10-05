@@ -1,0 +1,64 @@
+[
+  {"id":"gold_01","category":"age","text":"Patients must be at least 18 years old","expected_ast":{"type":"comparison","variable":"age","operator":">=","value":18,"unit":"years","source_text":"at least 18 years old"}},
+  {"id":"gold_02","category":"age","text":"Age less than 65","expected_ast":{"type":"comparison","variable":"age","operator":"<","value":65,"unit":"years","source_text":"Age less than 65"}},
+  {"id":"gold_03","category":"age","text":"Age 65 or younger","expected_ast":{"type":"comparison","variable":"age","operator":"<=","value":65,"unit":"years","source_text":"Age 65 or younger"}},
+  {"id":"gold_04","category":"age","text":"Age over 18","expected_ast":{"type":"comparison","variable":"age","operator":">","value":18,"unit":"years","source_text":"Age over 18"}},
+  {"id":"gold_05","category":"age","text":"Age between 18 and 70","expected_ast":{"type":"and","conditions":[{"type":"comparison","variable":"age","operator":">=","value":18,"unit":"years","source_text":"18"},{"type":"comparison","variable":"age","operator":"<=","value":70,"unit":"years","source_text":"70"}],"source_text":"Age between 18 and 70"}},
+
+  {"id":"gold_06","category":"sex","text":"Female patients only","expected_ast":{"type":"comparison","variable":"sex","operator":"==","value":"female","source_text":"Female patients only"}},
+  {"id":"gold_07","category":"sex","text":"Male patients","expected_ast":{"type":"comparison","variable":"sex","operator":"==","value":"male","source_text":"Male patients"}},
+
+  {"id":"gold_08","category":"negation","text":"No prior chemotherapy","expected_ast":{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"No prior chemotherapy"}},
+  {"id":"gold_09","category":"negation","text":"Patients who have not received chemotherapy","expected_ast":{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"Patients who have not received chemotherapy"}},
+  {"id":"gold_10","category":"negation","text":"Without active infection","expected_ast":{"type":"boolean","variable":"active_infection","value":false,"source_text":"Without active infection"}},
+  {"id":"gold_11","category":"negation","text":"Not pregnant","expected_ast":{"type":"boolean","variable":"pregnancy_status","value":false,"source_text":"Not pregnant"}},
+  {"id":"gold_12","category":"negation","text":"Previously untreated with chemotherapy","expected_ast":{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"Previously untreated with chemotherapy"}},
+  {"id":"gold_13","category":"negation","text":"No history of myocardial infarction","expected_ast":{"type":"boolean","variable":"myocardial_infarction","value":false,"source_text":"No history of myocardial infarction"}},
+  {"id":"gold_14","category":"negation","text":"Patients without a history of chemotherapy","expected_ast":{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"Patients without a history of chemotherapy"}},
+
+  {"id":"gold_15","category":"boolean","text":"EGFR-positive disease","expected_ast":{"type":"boolean","variable":"egfr_positive","value":true,"source_text":"EGFR-positive disease"}},
+  {"id":"gold_16","category":"boolean","text":"ALK positive","expected_ast":{"type":"boolean","variable":"alk_positive","value":true,"source_text":"ALK positive"}},
+  {"id":"gold_17","category":"boolean","text":"HER2-positive","expected_ast":{"type":"boolean","variable":"her2_positive","value":true,"source_text":"HER2-positive"}},
+  {"id":"gold_18","category":"boolean","text":"Metastatic disease","expected_ast":{"type":"boolean","variable":"metastasis","value":true,"source_text":"Metastatic disease"}},
+  {"id":"gold_19","category":"boolean","text":"No brain metastases","expected_ast":{"type":"boolean","variable":"brain_metastases","value":false,"source_text":"No brain metastases"}},
+  {"id":"gold_20","category":"boolean","text":"Prior radiation therapy","expected_ast":{"type":"boolean","variable":"prior_radiation","value":true,"source_text":"Prior radiation therapy"}},
+  {"id":"gold_21","category":"boolean","text":"No prior surgery","expected_ast":{"type":"boolean","variable":"prior_surgery","value":false,"source_text":"No prior surgery"}},
+  {"id":"gold_22","category":"boolean","text":"Prior immunotherapy","expected_ast":{"type":"boolean","variable":"prior_immunotherapy","value":true,"source_text":"Prior immunotherapy"}},
+
+  {"id":"gold_23","category":"disease","text":"Confirmed NSCLC diagnosis","expected_ast":{"type":"comparison","variable":"cancer_type","operator":"==","value":"NSCLC","source_text":"Confirmed NSCLC diagnosis"}},
+  {"id":"gold_24","category":"disease","text":"NSCLC or SCLC","expected_ast":{"type":"membership","variable":"cancer_type","values":["NSCLC","SCLC"],"source_text":"NSCLC or SCLC"}},
+  {"id":"gold_25","category":"disease","text":"Stage IV cancer","expected_ast":{"type":"comparison","variable":"disease_stage","operator":"==","value":"IV","source_text":"Stage IV cancer"}},
+
+  {"id":"gold_26","category":"performance","text":"ECOG performance status 0 or 1","expected_ast":{"type":"or","conditions":[{"type":"comparison","variable":"ecog_status","operator":"==","value":0,"source_text":"0"},{"type":"comparison","variable":"ecog_status","operator":"==","value":1,"source_text":"1"}],"source_text":"ECOG performance status 0 or 1"}},
+  {"id":"gold_27","category":"performance","text":"ECOG status 0-2","expected_ast":{"type":"and","conditions":[{"type":"comparison","variable":"ecog_status","operator":">=","value":0,"source_text":"0"},{"type":"comparison","variable":"ecog_status","operator":"<=","value":2,"source_text":"2"}],"source_text":"ECOG status 0-2"}},
+  {"id":"gold_28","category":"performance","text":"Karnofsky score at least 70","expected_ast":{"type":"comparison","variable":"karnofsky_score","operator":">=","value":70,"unit":"%","source_text":"Karnofsky score at least 70"}},
+
+  {"id":"gold_29","category":"laboratory","text":"Hemoglobin greater than 10 g/dL","expected_ast":{"type":"comparison","variable":"hemoglobin","operator":">","value":10,"unit":"g/dL","source_text":"Hemoglobin greater than 10 g/dL"}},
+  {"id":"gold_30","category":"laboratory","text":"Platelet count at least 100 cells/uL","expected_ast":{"type":"comparison","variable":"platelets","operator":">=","value":100,"unit":"cells/uL","source_text":"Platelet count at least 100 cells/uL"}},
+  {"id":"gold_31","category":"laboratory","text":"Creatinine less than 1.5 mg/dL","expected_ast":{"type":"comparison","variable":"creatinine","operator":"<","value":1.5,"unit":"mg/dL","source_text":"Creatinine less than 1.5 mg/dL"}},
+  {"id":"gold_32","category":"laboratory","text":"Total bilirubin no more than 2 mg/dL","expected_ast":{"type":"comparison","variable":"bilirubin","operator":"<=","value":2,"unit":"mg/dL","source_text":"Total bilirubin no more than 2 mg/dL"}},
+  {"id":"gold_33","category":"laboratory","text":"AST less than 3 times upper limit of normal","expected_ast":{"type":"unresolved","reason":"Value expressed as a multiple of ULN — no absolute threshold provided.","source_text":"AST less than 3 times upper limit of normal"}},
+
+  {"id":"gold_34","category":"logic_and","text":"EGFR positive AND no prior chemotherapy","expected_ast":{"type":"and","conditions":[{"type":"boolean","variable":"egfr_positive","value":true,"source_text":"EGFR positive"},{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"no prior chemotherapy"}],"source_text":"EGFR positive AND no prior chemotherapy"}},
+  {"id":"gold_35","category":"logic_or","text":"EGFR positive OR ALK positive","expected_ast":{"type":"or","conditions":[{"type":"boolean","variable":"egfr_positive","value":true,"source_text":"EGFR positive"},{"type":"boolean","variable":"alk_positive","value":true,"source_text":"ALK positive"}],"source_text":"EGFR positive OR ALK positive"}},
+  {"id":"gold_36","category":"logic_not","text":"Not EGFR positive","expected_ast":{"type":"boolean","variable":"egfr_positive","value":false,"source_text":"Not EGFR positive"}},
+  {"id":"gold_37","category":"logic_complex","text":"(EGFR positive OR ALK positive) AND no prior chemotherapy","expected_ast":{"type":"and","conditions":[{"type":"or","conditions":[{"type":"boolean","variable":"egfr_positive","value":true,"source_text":"EGFR positive"},{"type":"boolean","variable":"alk_positive","value":true,"source_text":"ALK positive"}],"source_text":"EGFR positive OR ALK positive"},{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"no prior chemotherapy"}],"source_text":"(EGFR positive OR ALK positive) AND no prior chemotherapy"}},
+
+  {"id":"gold_38","category":"temporal","text":"No chemotherapy within the previous 6 months","expected_ast":{"type":"temporal","event":"prior_chemotherapy","relation":"WITHIN","reference":"enrollment","amount":6,"unit":"months","source_text":"No chemotherapy within the previous 6 months"}},
+  {"id":"gold_39","category":"temporal","text":"Last therapy at least 30 days before enrollment","expected_ast":{"type":"temporal","event":"last_therapy_date","relation":"AT_LEAST","reference":"enrollment","amount":30,"unit":"days","source_text":"Last therapy at least 30 days before enrollment"}},
+  {"id":"gold_40","category":"temporal","text":"Diagnosed more than 6 months ago","expected_ast":{"type":"temporal","event":"diagnosis_date","relation":"AFTER","reference":"enrollment","amount":6,"unit":"months","source_text":"Diagnosed more than 6 months ago"}},
+
+  {"id":"gold_41","category":"unresolved","text":"Adequate renal function","expected_ast":{"type":"unresolved","reason":"No explicit measurable definition was provided.","source_text":"Adequate renal function"}},
+  {"id":"gold_42","category":"unresolved","text":"Adequate hepatic function","expected_ast":{"type":"unresolved","reason":"No explicit measurable definition was provided.","source_text":"Adequate hepatic function"}},
+  {"id":"gold_43","category":"unresolved","text":"Clinically significant cardiovascular disease","expected_ast":{"type":"unresolved","reason":"No measurable definition for clinically significant cardiovascular disease.","source_text":"Clinically significant cardiovascular disease"}},
+  {"id":"gold_44","category":"unresolved","text":"At physician's discretion","expected_ast":{"type":"unresolved","reason":"Criterion relies on physician discretion — not formally definable.","source_text":"At physician's discretion"}},
+  {"id":"gold_45","category":"unresolved","text":"Adequate bone marrow function","expected_ast":{"type":"unresolved","reason":"No explicit measurable definition provided.","source_text":"Adequate bone marrow function"}},
+
+  {"id":"gold_46","category":"compound","text":"Patients aged 18-65 with EGFR-positive NSCLC and no prior chemotherapy","expected_ast":{"type":"and","conditions":[{"type":"comparison","variable":"age","operator":">=","value":18,"unit":"years","source_text":"aged 18"},{"type":"comparison","variable":"age","operator":"<=","value":65,"unit":"years","source_text":"65"},{"type":"comparison","variable":"cancer_type","operator":"==","value":"NSCLC","source_text":"NSCLC"},{"type":"boolean","variable":"egfr_positive","value":true,"source_text":"EGFR-positive"},{"type":"boolean","variable":"prior_chemotherapy","value":false,"source_text":"no prior chemotherapy"}],"source_text":"Patients aged 18-65 with EGFR-positive NSCLC and no prior chemotherapy"}},
+
+  {"id":"gold_47","category":"pd_l1","text":"PD-L1 expression at least 50%","expected_ast":{"type":"comparison","variable":"pd_l1_level","operator":">=","value":50,"unit":"%","source_text":"PD-L1 expression at least 50%"}},
+  {"id":"gold_48","category":"pd_l1","text":"PD-L1 less than 1%","expected_ast":{"type":"comparison","variable":"pd_l1_level","operator":"<","value":1,"unit":"%","source_text":"PD-L1 less than 1%"}},
+
+  {"id":"gold_49","category":"treatment_history","text":"No prior targeted therapy","expected_ast":{"type":"boolean","variable":"prior_targeted_therapy","value":false,"source_text":"No prior targeted therapy"}},
+  {"id":"gold_50","category":"treatment_history","text":"Prior immunotherapy with checkpoint inhibitor","expected_ast":{"type":"boolean","variable":"prior_immunotherapy","value":true,"source_text":"Prior immunotherapy with checkpoint inhibitor"}}
+]
